@@ -1,0 +1,6 @@
+td,th{
+    color: aliceblue;
+}
+tr:hover td{
+    color: aliceblue;
+}

@@ -1,0 +1,36 @@
+drop database if EXISTS certus;
+create database certus;
+use certus;
+create table datos(
+Id int AUTO_INCREMENT Primary key,
+Nombre varchar(50) not null,
+Apellido varchar(50) not null,
+Correo varchar(50) not null
+);
+
+/*
+METODOS CRUD POR CADA TABLA
+Create -> insert
+Read -> select .... where
+Update -> update .... where
+Delete -> delete .... where
+*/
+-- Crear nuevo registro
+create procedure sp_Nuevo(in _id int, _nom varchar(50), _ape varchar(50), _correo varchar(50))
+insert datos values (_id, _nom, _ape, _correo);
+-- Buscar un registro por el Id
+create procedure sp_Buscar(in _id int)
+select * from datos where Id = _id;
+-- Actualziar un registro segun el Id
+create procedure sp_Actualizar(in _id int, _nom varchar(50), _ape varchar(50), _correo varchar(50))
+update datos set Nombre = _nom, Apellido = _ape, Correo = _correo
+where Id = _id;
+-- Eliminar registro
+create procedure sp_Eliminar(in _id int)
+delete from datos where Id = _id;
+-- Vista de todos los registros
+create procedure sp_Vista()
+select * from datos;
+
+call sp_Nuevo('', 'Juan', 'Perez', 'jperez@certus.pe');
+call sp_Nuevo('', 'Anita', 'Garcia', 'agarcia@certus.pe');

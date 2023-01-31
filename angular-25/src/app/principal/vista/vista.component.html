@@ -1,0 +1,62 @@
+<button mat-raised-button color="primary" class="m-3 esconder" (click)="abrirdialogcrear()">nuevo</button>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+  <!-- Position Column -->
+  <ng-container matColumnDef="Id">
+  <th mat-header-cell *matHeaderCellDef>Id</th>
+  <td mat-cell *matCellDef="let element">{{element.Id}}</td>
+  </ng-container>
+  
+  <!-- Name Column -->
+  <ng-container matColumnDef="Nombre">
+  <th mat-header-cell *matHeaderCellDef>Nombre</th>
+  <td mat-cell *matCellDef="let element">{{element.Nombre}}</td>
+  </ng-container>
+  
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Apellido">
+  <th mat-header-cell *matHeaderCellDef>Apellido</th>
+  <td mat-cell *matCellDef="let element">{{element.Apellido}}</td>
+  </ng-container>
+  
+  <ng-container matColumnDef="Correo">
+  <th mat-header-cell *matHeaderCellDef>Correo</th>
+  <td mat-cell *matCellDef="let element">{{element.Correo}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="eliminar">
+    <th mat-header-cell *matHeaderCellDef>eliminar</th>
+    <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="warn" (click)="eliminar(element.Id)">eliminar</button>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="actualizar">
+    <th mat-header-cell *matHeaderCellDef>actualizar</th>
+    <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="accent" (click)="abrirdialog(element)">actualizar</button>
+    </td>
+  </ng-container>
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+  mat-row
+  (click)="clickedRows.add(row)"
+  [class.demo-row-is-clicked]="clickedRows.has(row)"
+  *matRowDef="let row; columns: displayedColumns;"
+  ></tr>
+  </table>
+  
+  <div>
+  <h3>
+  Click Log
+  </h3>
+  </div>
+  
+  <div *ngIf="!clickedRows.size">
+  Clicked rows will be logged here
+  </div>
+  
+  <ul>
+  <li *ngFor="let clickedRow of clickedRows">
+  Clicked on {{clickedRow.Nombre}}
+  </li>
+  </ul>

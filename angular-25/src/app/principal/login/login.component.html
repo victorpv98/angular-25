@@ -1,0 +1,16 @@
+<section class="container-sm">
+    <section class="col-3">
+        <h4 class="text-center">Iniciar sesion</h4>
+        <section class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" class="form-control" name="username" [(ngModel)]="usurio">
+        </section>
+        <section class="form-group">
+          <label for="password">Password:</label>
+          <input type="text" class="form-control" name="password" [(ngModel)]="password">
+        </section>
+        <section class="form-group">
+            <input class="btn btn-primary" (click)="onSubmit()" value="Login">
+        </section>
+    </section>
+</section>

@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Crear un nuevo usurio</h1>
+<div mat-dialog-content>
+  <p>nombre completo?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>nombre...</mat-label>
+    <input matInput [(ngModel)]="data.Nombre">
+  </mat-form-field>
+  <mat-form-field appearance="fill"> 
+    <mat-label>apellido...</mat-label>
+    <input matInput [(ngModel)]="data.Apellido">
+  </mat-form-field>
+</div>
+<div mat-dialog-content>
+    <p>Cual es tu correo?</p>
+    <mat-form-field appearance="fill">
+      <mat-label>asd@asd.com...</mat-label>
+      <input matInput [(ngModel)]="data.Correo">
+    </mat-form-field>
+  </div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="accent" (click)="onNoClick()">descartar cambios</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
